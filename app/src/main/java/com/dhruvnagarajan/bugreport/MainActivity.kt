@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.dhruvnagarajan.bugreportsdk.BugManager
 import com.dhruvnagarajan.bugreportsdk.BugReport
+import com.dhruvnagarajan.bugreportsdk.BuildConfig
 import com.dhruvnagarajan.bugreportsdk.ReportInteractionListener
 
 /**
@@ -14,11 +15,21 @@ import com.dhruvnagarajan.bugreportsdk.ReportInteractionListener
  */
 class MainActivity : AppCompatActivity() {
 
-    private var bugManager = BugManager()
+    private lateinit var bugManager: BugManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        bugManager = BugManager.Builder()
+            .setWatermark(
+                """
+                    |OS_VERSION = ${Build.VERSION.SDK_INT}
+                    |APP_VERSION = ${BuildConfig.VERSION_NAME}
+                    |BUILD_ TYPE = ${BuildConfig.BUILD_TYPE}
+                """.trimMargin()
+            )
+            .build()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
