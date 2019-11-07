@@ -1,1 +1,1 @@
-include ':app', ':bugreportsdk'
+include ':app', ':l3.bugreport'

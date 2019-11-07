@@ -1,4 +1,4 @@
-package com.dhruvnagarajan.bugreportsdk
+package com.dhruvnagarajan.bugreport
 
 import android.content.Context
 import android.database.ContentObserver

@@ -1,14 +1,14 @@
-package com.dhruvnagarajan.bugreport
+package com.dhruvnagarajan.bugreport.sample
 
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.dhruvnagarajan.bugreportsdk.BugManager
-import com.dhruvnagarajan.bugreportsdk.BugReport
-import com.dhruvnagarajan.bugreportsdk.BuildConfig
-import com.dhruvnagarajan.bugreportsdk.ReportInteractionListener
+import com.dhruvnagarajan.bugreport.BugManager
+import com.dhruvnagarajan.bugreport.BugReport
+import com.dhruvnagarajan.bugreport.BuildConfig
+import com.dhruvnagarajan.bugreport.ReportInteractionListener
 
 /**
  * @author Dhruvaraj Nagarajan
@@ -39,7 +39,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun captureBugs() {
-        bugManager.listen(this, findViewById(android.R.id.content), object : ReportInteractionListener {
+        bugManager.listen(this, findViewById(android.R.id.content), object :
+            ReportInteractionListener {
             override fun onInteraction(bugReport: BugReport, submit: Boolean) {
                 Toast.makeText(
                     this@MainActivity,

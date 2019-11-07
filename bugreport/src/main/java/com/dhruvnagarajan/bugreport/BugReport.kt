@@ -1,4 +1,4 @@
-package com.dhruvnagarajan.bugreportsdk
+package com.dhruvnagarajan.bugreport
 
 import android.graphics.Bitmap
 import android.os.Build

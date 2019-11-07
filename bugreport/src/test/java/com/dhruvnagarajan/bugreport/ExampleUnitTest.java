@@ -1,4 +1,4 @@
-package com.dhruvnagarajan.bugreportsdk;
+package com.dhruvnagarajan.bugreport;
 
 import org.junit.Test;
 
